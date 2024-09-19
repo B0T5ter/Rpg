@@ -68,8 +68,21 @@ def sprawdzenie_kolizji(gora, dol, lewo, prawo):
         for kafelek in powierzchniazbior:
             if kafelek.kolizja == True:
                 if postacy <= kafelek.y + 50 and postacy > kafelek.y  and postacx + 50 >= kafelek.x and postacx < kafelek.x + 50:
-                    print(postacx, kafelek.x, postacy, kafelek.y)
-                    print(postacy <= kafelek.y + 50, postacx + 50 >= kafelek.x, postacx < kafelek.x + 50)
+                    return False
+    if dol == True:
+        for kafelek in powierzchniazbior:
+            if kafelek.kolizja == True:
+                if postacy+ 50 >= kafelek.y and postacy < kafelek.y  and postacx + 50 >= kafelek.x and postacx < kafelek.x + 50:
+                    return False
+    if lewo == True:
+        for kafelek in powierzchniazbior:
+            if kafelek.kolizja == True:
+                if postacx <= kafelek.x + 50 and postacx > kafelek.x  and postacy + 50 >= kafelek.y and postacy < kafelek.y + 50:
+                    return False
+    if prawo == True:
+        for kafelek in powierzchniazbior:
+            if kafelek.kolizja == True:
+                if postacx + 50 >= kafelek.x  and postacx < kafelek.x  and postacy + 50 >= kafelek.y and postacy < kafelek.y + 50:
                     return False
     return True
 print(windowWidth/2 - 25 , windowHeight/2 - 25)
@@ -88,13 +101,13 @@ while True:
     if key[pygame.K_w] == True and sprawdzenie_kolizji(True, False, False, False) == True:
         for x in powierzchniazbior:
             x.ruch_pion(szybkosc_ruchu)
-    if key[pygame.K_s] == True:
+    if key[pygame.K_s] == True and sprawdzenie_kolizji(False, True, False, False) == True:
         for x in powierzchniazbior:
             x.ruch_pion(-szybkosc_ruchu)
-    if key[pygame.K_a] == True:
+    if key[pygame.K_a] == True and sprawdzenie_kolizji(False, False, True, False) == True:
         for x in powierzchniazbior:
             x.ruch_poziom(szybkosc_ruchu)
-    if key[pygame.K_d] == True:
+    if key[pygame.K_d] == True and sprawdzenie_kolizji(False, False, False, True) == True:
         for x in powierzchniazbior:
             x.ruch_poziom(-szybkosc_ruchu)
 
