@@ -40,15 +40,10 @@ for x in range(len(mapaUlozenie)):
         if mapaUlozenie[x][y] == "2":
             powierzchniazbior.append(Powierzchnia(y*50, x*50, sciezkaPng))
 
-
-
-
 while True:
     for x in powierzchniazbior:
         x.rysowanie()
         
-    
-
     for event in pygame.event.get():
          if event.type == pygame.QUIT:
             pygame.quit()
