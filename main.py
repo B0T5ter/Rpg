@@ -67,22 +67,22 @@ def sprawdzenie_kolizji(gora, dol, lewo, prawo):
     if gora == True:
         for kafelek in powierzchniazbior:
             if kafelek.kolizja == True:
-                if postacy <= kafelek.y + 50 and postacy > kafelek.y  and postacx + 50 >= kafelek.x and postacx < kafelek.x + 50:
+                if postacy <= kafelek.y + 50 + szybkosc_ruchu and postacy > kafelek.y  and postacx + 50 >= kafelek.x and postacx < kafelek.x + 50:
                     return False
     if dol == True:
         for kafelek in powierzchniazbior:
             if kafelek.kolizja == True:
-                if postacy+ 50 >= kafelek.y and postacy < kafelek.y  and postacx + 50 >= kafelek.x and postacx < kafelek.x + 50:
+                if postacy + 50 + szybkosc_ruchu >= kafelek.y and postacy < kafelek.y  and postacx + 50 >= kafelek.x and postacx < kafelek.x + 50:
                     return False
     if lewo == True:
         for kafelek in powierzchniazbior:
             if kafelek.kolizja == True:
-                if postacx <= kafelek.x + 50 and postacx > kafelek.x  and postacy + 50 >= kafelek.y and postacy < kafelek.y + 50:
+                if postacx <= kafelek.x + 50 + szybkosc_ruchu and postacx > kafelek.x  and postacy + 50 >= kafelek.y and postacy < kafelek.y + 50:
                     return False
     if prawo == True:
         for kafelek in powierzchniazbior:
             if kafelek.kolizja == True:
-                if postacx + 50 >= kafelek.x  and postacx < kafelek.x  and postacy + 50 >= kafelek.y and postacy < kafelek.y + 50:
+                if postacx + 50 + szybkosc_ruchu >= kafelek.x  and postacx < kafelek.x  and postacy + 50 >= kafelek.y and postacy < kafelek.y + 50:
                     return False
     return True
 print(windowWidth/2 - 25 , windowHeight/2 - 25)
